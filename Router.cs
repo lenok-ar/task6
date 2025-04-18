@@ -87,6 +87,11 @@
                     Console.WriteLine($"\nТранспонированная матрица:\n\n{transpositionMatrix}");
                     break;
 
+                case "14":
+                    Console.WriteLine($"\nВходная матрица:\n\n{firstMatrix}");
+                    Console.WriteLine($"\nСлед матрицы: {firstMatrix.TraceMatrix()}");
+                    break;
+
                 default:
                     throw new InvalidMenuChoiceException("Недопустимый выбор", route);
             }
