@@ -29,7 +29,7 @@
                     "15. Приведение матрицы к диагональному виду"
                 );
 
-                Console.Write("Что вы хотите сделать: ");
+                Console.Write("\nВведите номер действия: ");
                 string choice = Convert.ToString(Console.ReadLine());
 
                 try
