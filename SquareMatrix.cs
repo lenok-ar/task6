@@ -17,7 +17,7 @@
             {
                 for (int col = 0; col < matrix.GetLength(1); ++col)
                 {
-                    matrix[row, col] = rand.Next(-100, 100);
+                    matrix[row, col] = rand.Next(-10, 10);
                 }
             }
         }
@@ -311,6 +311,40 @@
             }
 
             return traceMatrix;
+        }
+
+        public SquareMatrix Diagonalization()
+        {
+            SquareMatrix diagonalizedMatrix = this.Clone();
+
+            diagonalizedMatrix.matrix[1, 1] = (diagonalizedMatrix.matrix[0, 0] * diagonalizedMatrix.matrix[1, 1]) - (diagonalizedMatrix.matrix[0, 1] * diagonalizedMatrix.matrix[1, 0]);
+            diagonalizedMatrix.matrix[1, 2] = (diagonalizedMatrix.matrix[0, 0] * diagonalizedMatrix.matrix[1, 2]) - (diagonalizedMatrix.matrix[0, 2] * diagonalizedMatrix.matrix[1, 0]);
+            diagonalizedMatrix.matrix[2, 1] = (diagonalizedMatrix.matrix[0, 0] * diagonalizedMatrix.matrix[2, 1]) - (diagonalizedMatrix.matrix[0, 1] * diagonalizedMatrix.matrix[2, 0]);
+            diagonalizedMatrix.matrix[2, 2] = (diagonalizedMatrix.matrix[0, 0] * diagonalizedMatrix.matrix[2, 2]) - (diagonalizedMatrix.matrix[0, 2] * diagonalizedMatrix.matrix[2, 0]);
+            diagonalizedMatrix.matrix[1, 0] = 0;
+            diagonalizedMatrix.matrix[2, 0] = 0;
+
+            diagonalizedMatrix.matrix[0, 2] = (diagonalizedMatrix.matrix[1, 1] * diagonalizedMatrix.matrix[0, 2]) - (diagonalizedMatrix.matrix[0, 1] * diagonalizedMatrix.matrix[1, 2]);
+            diagonalizedMatrix.matrix[2, 2] = (diagonalizedMatrix.matrix[1, 1] * diagonalizedMatrix.matrix[2, 2]) - (diagonalizedMatrix.matrix[1, 2] * diagonalizedMatrix.matrix[2, 1]);
+            diagonalizedMatrix.matrix[0, 1] = 0;
+            diagonalizedMatrix.matrix[2, 1] = 0;
+
+            diagonalizedMatrix.matrix[0, 2] = 0;
+            diagonalizedMatrix.matrix[1, 2] = 0;
+
+            return diagonalizedMatrix;
+        }
+
+        public delegate SquareMatrix DiagonalizationDelegate();
+
+        public SquareMatrix DiagonalizeWithDelegate()
+        {
+            DiagonalizationDelegate diagonalizationMethod = delegate ()
+            {
+                return this.Diagonalization();
+            };
+
+            return diagonalizationMethod();
         }
     }
 }

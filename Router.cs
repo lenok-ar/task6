@@ -92,6 +92,12 @@
                     Console.WriteLine($"\nСлед матрицы: {firstMatrix.TraceMatrix()}");
                     break;
 
+                case "15":
+                    Console.WriteLine($"\nВходная матрица:\n\n{firstMatrix}");
+                    SquareMatrix diagonalizedMatrix = firstMatrix.DiagonalizeWithDelegate();
+                    Console.WriteLine($"\nМатрица диагонального вида:\n\n{diagonalizedMatrix}");
+                    break;
+
                 default:
                     throw new InvalidMenuChoiceException("Недопустимый выбор", route);
             }
