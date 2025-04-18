@@ -81,6 +81,12 @@
                     Console.WriteLine($"\nСкопированная матрица:\n\n{clonedMatrix}");
                     break;
 
+                case "13":
+                    Console.WriteLine($"\nВходная матрица:\n\n{firstMatrix}");
+                    SquareMatrix transpositionMatrix = firstMatrix.Transposition();
+                    Console.WriteLine($"\nТранспонированная матрица:\n\n{transpositionMatrix}");
+                    break;
+
                 default:
                     throw new InvalidMenuChoiceException("Недопустимый выбор", route);
             }
