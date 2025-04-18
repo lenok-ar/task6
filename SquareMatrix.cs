@@ -70,7 +70,6 @@
     public static bool operator >(SquareMatrix left, SquareMatrix right)
     {
       return left.CalculateNormMatrix() > right.CalculateNormMatrix();
-
     }
 
     public static bool operator <(SquareMatrix left, SquareMatrix right)
@@ -81,7 +80,6 @@
     public static bool operator >=(SquareMatrix left, SquareMatrix right)
     {
       return left.CalculateNormMatrix() >= right.CalculateNormMatrix();
-
     }
 
     public static bool operator <=(SquareMatrix left, SquareMatrix right)
