@@ -2,7 +2,7 @@
 {
   internal class Menu
   {
-    public void ViewMenu()
+    public void ShowMenu()
     {
       Router router = new Router();
 
