@@ -54,7 +54,6 @@
     {
       switch (route)
       {
-
         case "3":
           Console.WriteLine($"\nПервая матрица больше второй: {firstMatrix > secondMatrix}\n");
           break;
@@ -139,7 +138,6 @@
     }
   }
 
-
   internal class Router
   {
     public delegate SquareMatrix MatrixOperation(SquareMatrix matrix1, SquareMatrix matrix2);
@@ -159,11 +157,10 @@
                        .SetNext(new DefaultHandler());
     }
 
-    public void ViewMatrix(SquareMatrix firstMatrix, SquareMatrix secondMatrix)
+    public void ShowMatrix(SquareMatrix firstMatrix, SquareMatrix secondMatrix)
     {
       Console.WriteLine($"\nПервая матрица:\n\n{firstMatrix}\n");
       Console.WriteLine($"\nВторая матрица:\n\n{secondMatrix}\n");
-
     }
 
     public void Routes(string route)
